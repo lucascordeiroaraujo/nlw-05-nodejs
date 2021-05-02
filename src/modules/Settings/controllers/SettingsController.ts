@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { SettingsRepository } from '../repositories/SettingsRepository'
+import { SettingsRepository } from '@modules/Settings/repositories/SettingsRepository'
 
 import { getCustomRepository } from 'typeorm'
 

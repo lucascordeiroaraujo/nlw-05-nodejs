@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import { SettingsController } from 'controllers/SettingsController'
+import { SettingsController } from '@modules/Settings/controllers/SettingsController'
 
 const routes = Router()
 
