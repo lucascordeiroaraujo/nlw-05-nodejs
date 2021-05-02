@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
 
-import { SettingsService } from '../services/SettingsService'
+import { SettingsService } from '@modules/Settings/services/SettingsService'
 
 class SettingsController {
-  async create(request: Request, response: Response) {
+  async create(request: Request, response: Response): Promise<Response> {
     const { chat, username } = request.body
 
     const settingsService = new SettingsService()
