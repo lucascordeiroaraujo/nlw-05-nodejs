@@ -4,9 +4,18 @@ import { getCustomRepository, Repository } from 'typeorm'
 
 import { Setting } from '@modules/Settings/entities/Setting'
 
-interface ISettingsCreate {
+interface ISettingsCreateProps {
   chat: boolean
   username: string
+}
+
+interface IFindByUsernameProps {
+  username: string
+}
+
+interface IUpdateProps {
+  username: string
+  chat: boolean
 }
 
 class SettingsService {
@@ -16,7 +25,7 @@ class SettingsService {
     this.settingsRepository = getCustomRepository(SettingsRepository)
   }
 
-  async create({ chat, username }: ISettingsCreate) {
+  async create({ chat, username }: ISettingsCreateProps) {
     const userAlreadyExists = await this.settingsRepository.findOne({
       username,
     })
@@ -30,6 +39,23 @@ class SettingsService {
     await this.settingsRepository.save(settings)
 
     return settings
+  }
+
+  async findByUsername({ username }: IFindByUsernameProps) {
+    const settings = await this.settingsRepository.findOne({
+      username,
+    })
+
+    return settings
+  }
+
+  async update({ username, chat }: IUpdateProps) {
+    await this.settingsRepository
+      .createQueryBuilder()
+      .update(Setting)
+      .set({ chat })
+      .where('username = :userename', { username })
+      .execute()
   }
 }
 

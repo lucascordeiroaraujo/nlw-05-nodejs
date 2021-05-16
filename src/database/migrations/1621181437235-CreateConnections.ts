@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateMessages1619994661283 implements MigrationInterface {
+export class CreateConnections1621181437235 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'messages',
+        name: 'connections',
         columns: [
           {
             name: 'id',
@@ -21,7 +21,7 @@ export class CreateMessages1619994661283 implements MigrationInterface {
             type: 'uuid',
           },
           {
-            name: 'text',
+            name: 'socket_id',
             type: 'varchar',
           },
           {
@@ -29,10 +29,15 @@ export class CreateMessages1619994661283 implements MigrationInterface {
             type: 'timestamp',
             default: 'now()',
           },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
         ],
         foreignKeys: [
           {
-            name: 'FKUser',
+            name: 'FKConnectionUser',
             referencedTableName: 'users',
             referencedColumnNames: ['id'],
             columnNames: ['user_id'],
@@ -45,6 +50,6 @@ export class CreateMessages1619994661283 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('messages')
+    await queryRunner.dropTable('connections')
   }
 }
