@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { SettingsService } from '@modules/Settings/services/SettingsService'
+import { SettingsService } from '../services/SettingsService'
 
 class SettingsController {
   async create(request: Request, response: Response): Promise<Response> {

@@ -10,7 +10,7 @@ import {
 
 import { v4 as uuid } from 'uuid'
 
-import { User } from '@modules/Users/entities/User'
+import { User } from '../../Users/entities/User'
 
 @Entity('connections')
 class Connection {

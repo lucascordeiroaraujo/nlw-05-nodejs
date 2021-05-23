@@ -1,8 +1,8 @@
 import { getCustomRepository, Repository } from 'typeorm'
 
-import { Message } from '@modules/Messages/entities/Message'
+import { Message } from '../entities/Message'
 
-import { MessagesRepository } from '@modules/Messages/repositories/MessagesRepository'
+import { MessagesRepository } from '../repositories/MessagesRepository'
 
 interface IMessagesCreate {
   admin_id?: string

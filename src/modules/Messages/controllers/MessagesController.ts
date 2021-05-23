@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+
 import { MessagesService } from '../services/MessagesService'
 
 class MessagesController {

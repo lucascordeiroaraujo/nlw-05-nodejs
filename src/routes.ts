@@ -1,10 +1,10 @@
 import { Router } from 'express'
 
-import { SettingsController } from '@modules/Settings/controllers/SettingsController'
+import { MessagesController } from './modules/Messages/controllers/MessagesController'
 
-import { UsersController } from '@modules/Users/controllers/UsersController'
+import { SettingsController } from './modules/Settings/controllers/SettingsController'
 
-import { MessagesController } from '@modules/Messages/controllers/MessagesController'
+import { UsersController } from './modules/Users/controllers/UsersController'
 
 const routes = Router()
 
@@ -24,6 +24,6 @@ routes.post('/users', usersController.create)
 
 routes.post('/messages', messagesController.create)
 
-routes.get('/messages/:user_id', messagesController.showByUser)
+routes.get('/messages/:id', messagesController.showByUser)
 
 export { routes }

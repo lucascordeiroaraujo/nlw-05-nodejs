@@ -1,8 +1,8 @@
 import { getCustomRepository, Repository } from 'typeorm'
 
-import { UsersRepository } from '@modules/Users/repositories/UsersRepository'
+import { UsersRepository } from '../repositories/UsersRepository'
 
-import { User } from '@modules/Users/entities/User'
+import { User } from '../entities/User'
 
 interface IUsersCreate {
   email: string

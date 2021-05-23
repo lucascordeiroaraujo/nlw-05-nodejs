@@ -1,8 +1,8 @@
-import { SettingsRepository } from '@modules/Settings/repositories/SettingsRepository'
+import { SettingsRepository } from '../repositories/SettingsRepository'
 
 import { getCustomRepository, Repository } from 'typeorm'
 
-import { Setting } from '@modules/Settings/entities/Setting'
+import { Setting } from '../entities/Setting'
 
 interface ISettingsCreateProps {
   chat: boolean
